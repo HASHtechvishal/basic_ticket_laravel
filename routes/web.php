@@ -24,7 +24,13 @@ Route::namespace('front')->group(function(){
 
 //route for admins
 
-Route::match(['get','post'],'/dash','admin\AdminController@dash');
+Route::prefix('admin/')->namespace('admin')->group(function(){ 
+Route::group(['middleware' => ['admin']], function(){
+
+    Route::match(['get','post'],'dash','AdminController@dash');
+
+}); 
+});   
 
 
 require __DIR__.'/auth.php';
