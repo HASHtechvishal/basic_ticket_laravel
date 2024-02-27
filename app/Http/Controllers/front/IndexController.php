@@ -11,4 +11,12 @@ class IndexController extends Controller
        
         return view('front.index');
     }
+
+    public function user_admin(Request $req){
+        return view('front.user_admin');
+    }
+
+    public function login(Request $req){
+        return view('front.login');
+    }
 }

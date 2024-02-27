@@ -9,6 +9,8 @@
 
 	<title>Booking Form HTML Template</title>
 
+	
+
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 

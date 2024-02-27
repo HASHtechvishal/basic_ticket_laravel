@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('front')->group(function(){ 
 
     Route::match(['get','post'],'/','IndexController@Index');
-
+    Route::get('user-admin','IndexController@user_admin');
+    Route::get('log-in','IndexController@login');
 });
 
 require __DIR__.'/auth.php';
