@@ -13,6 +13,11 @@ class IndexController extends Controller
     }
 
     public function user_admin(Request $req){
+
+        if($req->isMethod('post')){
+            $data = $req->all();
+            dd($data); die();
+        }
         return view('front.user_admin');
     }
 

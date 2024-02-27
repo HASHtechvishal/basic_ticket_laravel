@@ -13,15 +13,15 @@
 					</div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
-							<form>
+							<form action="{{url('user-admin')}}" method="post" enctype="multipart/form-data">@csrf
 								<div class="form-group">
 									<div class="form-checkbox">
 										<label for="one-way">
-											<input type="radio" id="one-way" name="flight-type">
+											<input type="radio" id="one-way" name="user-type" value="admin">
 											<span></span>Admin
 										</label>
 										<label for="multi-city">
-											<input type="radio" id="multi-city" name="flight-type">
+											<input type="radio" id="multi-city" name="user-type" value="user">
 											<span></span>User
 										</label>
                                         <label>
@@ -36,13 +36,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Username</span>
-											<input class="form-control" type="text" placeholder="Enter your name">
+											<input class="form-control" name="name" type="text" placeholder="Enter your name">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Email</span>
-											<input class="form-control" type="text" placeholder="Enter your email">
+											<input class="form-control" type="text" name="email" placeholder="Enter your email">
 										</div>
 									</div>
 								</div>
@@ -50,13 +50,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Password</span>
-											<input class="form-control" type="password" required>
+											<input class="form-control" name="password" type="password" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Confirm Password</span>
-											<input class="form-control" type="password" required>
+											<input class="form-control" name="Cpass" type="password" required>
 										</div>
 									</div>
 								</div>
@@ -67,7 +67,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">select country</span>
-											<select class="form-control">
+											<select class="form-control" name="country" id="country">
 												<option>+91</option>
 												<option>+92</option>
 												<option>+1</option>
@@ -78,7 +78,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">mobile number</span>
-												<input class="form-control" type="number">
+												<input class="form-control" name="number" type="number">
 										</div>
 									</div>
 									
@@ -94,7 +94,7 @@
 										<div class="form-group">
 											<span class="form-label">photo</span>
 											<div class="form-control">
-												<input type="file">
+												<input type="file" name="image"/>
                                             </div>
 										</div>
 									</div>
