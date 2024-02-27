@@ -19,7 +19,7 @@ Route::namespace('front')->group(function(){
 
     Route::match(['get','post'],'/','IndexController@Index');
     Route::match(['get','post'],'user-admin','IndexController@user_admin');
-    Route::get('log-in','IndexController@login');
+    Route::match(['get','post'],'log-in','IndexController@login');
 });
 
 //route for admins

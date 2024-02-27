@@ -13,15 +13,15 @@
 					</div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
-							<form>
+							<form action="{{url('log-in')}}" method="post">@csrf
 								<div class="form-group">
 									<div class="form-checkbox">
 										<label for="one-way">
-											<input type="radio" id="one-way" name="flight-type">
+											<input type="radio" id="one-way" name="user-type" value="admin">
 											<span></span>Admin
 										</label>
 										<label for="multi-city">
-											<input type="radio" id="multi-city" name="flight-type">
+											<input type="radio" id="multi-city" name="user-type" value="user">
 											<span></span>User
 										</label>
                                         <label>
@@ -36,13 +36,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">email</span>
-											<input class="form-control" type="text" placeholder="enter your email">
+											<input class="form-control" type="text" name="email" placeholder="enter your email" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">password</span>
-											<input class="form-control" type="text" placeholder="enter your password">
+											<input class="form-control" type="password" name="password" placeholder="enter your password" required>
 										</div>
 									</div>
 								</div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use Image;
+use Auth;
 
 class IndexController extends Controller
 {
@@ -131,6 +132,28 @@ class IndexController extends Controller
     }
 
     public function login(Request $req){
+
+        if($req->isMethod('post')){
+            $data = $req->all();
+            //dd($data); die();
+
+            if(!isset($data['user-type'])){
+                echo '<script>alert("PLEASE SELECT YOUR  USER TYPE");</script>';
+                        return redirect()->back();
+            }
+
+            if($data['user-type'] == 'admin'){
+                if (Auth::guard('admin')->attempt(['email'=>$data['email'],'password'=>$data['password'],'status'=>1])) { 
+                    return redirect('/admin/dash');
+                }else{
+                    echo '<script>alert("INCORRECT EMAIL OR PASSWORS");</script>';
+                            return redirect()->back();
+                 }
+            }elseif($data['user-type'] == 'user'){
+                return redirect('/');
+            }
+
+        }
         return view('front.login');
     }
 }
