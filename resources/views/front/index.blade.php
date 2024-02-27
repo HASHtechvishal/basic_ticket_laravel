@@ -14,15 +14,15 @@
 					</div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
-							<form>
+							<form action="{{url('search_flight/'.Auth::guard('user')->user()->id)}}" method="post">@csrf
 								<div class="form-group">
 									<div class="form-checkbox">
 										<label for="one-way">
-											<input type="radio" id="one-way" name="flight-type">
+											<input type="radio" id="one-way" name="flight-type" value="one way">
 											<span></span>One way
 										</label>
 										<label for="multi-city">
-											<input type="radio" id="multi-city" name="flight-type">
+											<input type="radio" id="multi-city" name="flight-type" value="two way">
 											<span></span>Two way
 										</label>
 										<label>
@@ -51,13 +51,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Flying from</span>
-											<input class="form-control" type="text" placeholder="City or airport">
+											<input class="form-control" type="text" name="from" placeholder="City or airport" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Flyning to</span>
-											<input class="form-control" type="text" placeholder="City or airport">
+											<input class="form-control" type="text" name="to" placeholder="City or airport" required>
 										</div>
 									</div>
 								</div>
@@ -65,13 +65,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Departing</span>
-											<input class="form-control" type="date" required>
+											<input class="form-control" type="date" name="Departing" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Returning</span>
-											<input class="form-control" type="date" required>
+											<input class="form-control" type="date" name="Returning" required>
 										</div>
 									</div>
 								</div>
@@ -79,7 +79,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Adults (18+)</span>
-											<select class="form-control">
+											<select class="form-control" name="adult">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -90,7 +90,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Children (0-17)</span>
-											<select class="form-control">
+											<select class="form-control" name="child">
 												<option>0</option>
 												<option>1</option>
 												<option>2</option>
@@ -101,7 +101,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Travel class</span>
-											<select class="form-control">
+											<select class="form-control" name="class">
 												<option>Economy class</option>
 												<option>Business class</option>
 												<option>First class</option>

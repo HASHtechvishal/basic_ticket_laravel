@@ -21,6 +21,9 @@ Route::namespace('front')->group(function(){
     Route::match(['get','post'],'user-admin','IndexController@user_admin');
     Route::match(['get','post'],'log-in','IndexController@login');
     Route::get('user_logout','IndexController@userLogout');
+
+
+    Route::post('search_flight/{id?}','userController@searchFlight');
 });
 
 //route for admins
