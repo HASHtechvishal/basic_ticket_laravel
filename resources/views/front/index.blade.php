@@ -28,6 +28,23 @@
 										<label>
 											<span></span><a href='{{url('user-admin')}}'>User/Admin</a>
 										</label>
+
+										<label>
+											<span></span>Welcome -> {{Auth::guard('user')->user()->username ?? ''}} &nbsp;
+
+											<?php
+											if(isset(Auth::guard('user')->user()->image)){ ?>
+											    <img src="{{url('/admin/user_image/'.Auth::guard('user')->user()->image)}}" alt="" style="width: 60px; height: 60px;"></span>
+												&nbsp; &nbsp; &nbsp;
+											    <a href="{{ url('user_logout')}}"><i class="fa fa-sign-out" style="font-size:24px"></i></a>
+											<?php
+											}else{ ?>
+												<img src="" alt="">
+											<?php
+											}
+											?>
+											
+										</label>
 									</div>
 								</div>
 								<div class="row">

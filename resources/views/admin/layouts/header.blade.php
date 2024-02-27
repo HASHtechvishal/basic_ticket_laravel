@@ -16,6 +16,11 @@
         <div class="right-div">
             <a href="{{('log-out')}}" class="btn btn-danger pull-right">LOG ME OUT</a>
         </div>
+
+        <div class="right-div">
+            <a href="{{('/')}}" class="btn btn-danger pull-right">VIEW WEBSITE</a>
+        </div>
+
     </div>
 </div>
 <!-- LOGO HEADER END-->

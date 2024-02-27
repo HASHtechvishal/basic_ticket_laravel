@@ -38,7 +38,7 @@ class IndexController extends Controller
                     $extension = $image_tmp->getClientOriginalExtension(); 
                     $NewimageName = $data['name'].rand(111,999).'.'.$extension;
                     $imagePath = 'admin/admin_image/'.$NewimageName;
-                    Image::make($image_tmp)->resize(30,30)->save($imagePath); 
+                    Image::make($image_tmp)->resize(80,80)->save($imagePath); 
 
                 }
 
@@ -84,7 +84,7 @@ class IndexController extends Controller
                     $extension = $image_tmp->getClientOriginalExtension(); 
                     $NewimageName = $data['name'].rand(111,999).'.'.$extension;
                     $imagePath = 'admin/user_image/'.$NewimageName;
-                    Image::make($image_tmp)->resize(30,30)->save($imagePath); 
+                    Image::make($image_tmp)->resize(80,80)->save($imagePath); 
 
                 }
 
@@ -150,10 +150,20 @@ class IndexController extends Controller
                             return redirect()->back();
                  }
             }elseif($data['user-type'] == 'user'){
-                return redirect('/');
+                if (Auth::guard('user')->attempt(['email'=>$data['email'],'password'=>$data['password'],'status'=>1])) { 
+                    return redirect('/');
+                }else{
+                    echo '<script>alert("INCORRECT EMAIL OR PASSWORS");</script>';
+                            return redirect()->back();
+                 }          
             }
 
         }
         return view('front.login');
+    }
+
+    public function userLogout(Request $req){
+        Auth::guard('user')->logout();
+        return redirect('/log-in');
     }
 }
