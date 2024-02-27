@@ -22,4 +22,9 @@ Route::namespace('front')->group(function(){
     Route::get('log-in','IndexController@login');
 });
 
+//route for admins
+
+Route::match(['get','post'],'/dash','admin\AdminController@dash');
+
+
 require __DIR__.'/auth.php';

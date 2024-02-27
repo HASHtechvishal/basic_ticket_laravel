@@ -28,7 +28,7 @@
 											<span></span><a href='{{url('log-in')}}'>Log-in</a>
 										</label>
                                         <label>
-											<span></span><a href='{{url('/')}}'>BACK</a>
+											<span></span><a href='{{url('/')}}'>HOME</a>
 										</label>
 									</div>
 								</div>
@@ -36,13 +36,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Username</span>
-											<input class="form-control" name="name" type="text" placeholder="Enter your name">
+											<input class="form-control" name="name" type="text" placeholder="Enter your name" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Email</span>
-											<input class="form-control" type="text" name="email" placeholder="Enter your email">
+											<input class="form-control" type="text" name="email" placeholder="Enter your email" required>
 										</div>
 									</div>
 								</div>
@@ -78,7 +78,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">mobile number</span>
-												<input class="form-control" name="number" type="number">
+												<input class="form-control" name="number" type="text">
 										</div>
 									</div>
 									
@@ -94,7 +94,7 @@
 										<div class="form-group">
 											<span class="form-label">photo</span>
 											<div class="form-control">
-												<input type="file" name="image"/>
+												<input type="file" name="image" required/>
                                             </div>
 										</div>
 									</div>

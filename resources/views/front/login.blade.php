@@ -28,7 +28,7 @@
 											<span></span><a href='{{url('user-admin')}}'>register</a>
 										</label>
                                         <label>
-											<span></span><a href='{{url('/')}}'>BACK</a>
+											<span></span><a href='{{url('/')}}'>HOME</a>
 										</label>
 									</div>
 								</div>
