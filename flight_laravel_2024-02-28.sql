@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.26)
 # Database: flight_laravel
-# Generation Time: 2024-02-27 18:32:18 +0000
+# Generation Time: 2024-02-27 21:34:46 +0000
 # ************************************************************
 
 
@@ -45,7 +45,8 @@ LOCK TABLES `admins` WRITE;
 
 INSERT INTO `admins` (`id`, `username`, `type`, `email`, `password`, `country`, `mobile`, `image`, `status`, `created_at`, `updated_at`)
 VALUES
-	(3,'vishal arora','admin','vishalarora1087@gmail.com','$2y$10$zCm40A0HiqnmMQdnexXCm.4JVqKN176nejEiagglS1rhduSQg4wm6','+91','+917508050111','vishal arora125.jpg',1,'2024-02-27 17:04:22','2024-02-27 17:04:22');
+	(3,'vishal arora','admin','vishalarora1087@gmail.com','$2y$10$zCm40A0HiqnmMQdnexXCm.4JVqKN176nejEiagglS1rhduSQg4wm6','+91','+917508050111','vishal arora125.jpg',1,'2024-02-27 17:04:22','2024-02-27 17:04:22'),
+	(4,'test','admin','test@gmail.com','$2y$10$wbXbSRtw8aye9ZEjxCffguqX6OVK5t4PBnD.6R.YZV448gTrBOuoW','+91','111111111','test233.jpg',1,'2024-02-27 18:39:03','2024-02-27 18:39:03');
 
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -130,6 +131,39 @@ CREATE TABLE `personal_access_tokens` (
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+
+# Dump of table Search_flights
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Search_flights`;
+
+CREATE TABLE `Search_flights` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(50) DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  `from` varchar(100) DEFAULT NULL,
+  `to` varchar(100) DEFAULT NULL,
+  `departing` varchar(100) DEFAULT '',
+  `returning` varchar(100) DEFAULT NULL,
+  `adult` int(100) DEFAULT NULL,
+  `child` int(100) DEFAULT NULL,
+  `class` varchar(100) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `Search_flights` WRITE;
+/*!40000 ALTER TABLE `Search_flights` DISABLE KEYS */;
+
+INSERT INTO `Search_flights` (`id`, `user_id`, `type`, `from`, `to`, `departing`, `returning`, `adult`, `child`, `class`, `status`, `updated_at`, `created_at`)
+VALUES
+	(1,4,'one way','delhi','goa','1111-11-11','1111-11-11',1,0,'Economy class',1,'2024-02-27 21:24:58','2024-02-27 21:24:58');
+
+/*!40000 ALTER TABLE `Search_flights` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table users
