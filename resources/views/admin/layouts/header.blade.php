@@ -14,7 +14,7 @@
         </div>
 
         <div class="right-div">
-            <a href="#" class="btn btn-danger pull-right">LOG ME OUT</a>
+            <a href="{{('log-out')}}" class="btn btn-danger pull-right">LOG ME OUT</a>
         </div>
     </div>
 </div>

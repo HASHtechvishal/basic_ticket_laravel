@@ -28,6 +28,8 @@ Route::prefix('admin/')->namespace('admin')->group(function(){
 Route::group(['middleware' => ['admin']], function(){
 
     Route::match(['get','post'],'dash','AdminController@dash');
+    Route::get('log-out','AdminController@adminLogout');
+
 
 }); 
 });   
