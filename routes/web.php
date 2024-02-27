@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//route front
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::namespace('front')->group(function(){ 
+
+    Route::match(['get','post'],'/','IndexController@Index');
+
+});
 
 require __DIR__.'/auth.php';
