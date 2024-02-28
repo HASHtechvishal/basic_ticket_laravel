@@ -58,7 +58,9 @@ class userController extends Controller
 
 
             echo '<script>alert("Your Payment Is Done")</script>';
-            $add_flight = SearchFlight::where('user_id',$user_id)->first();
+
+            $tableID = SearchFlight::whereNull('flightID')->where('user_id',$user_id)->pluck('id')->first();
+            $add_flight = SearchFlight::find($tableID);
             if($add_flight){
                 if($add_flight->flightID === null){
                     $add_flight->flightID = $id;
@@ -73,7 +75,7 @@ class userController extends Controller
             }
 
 
-            
+
 
         }
 
