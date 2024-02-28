@@ -24,7 +24,7 @@ class userController extends Controller
                 //dd($flights); die();
                 if(!empty($flights)){
 
-                    $userID = User::find($id)->id ?? '';
+                    $userID = User::find($id)->id ?? ''; 
                     $search = new SearchFlight;
                     $search->user_id = $userID;
                     $search->type = $data['flight-type'];
