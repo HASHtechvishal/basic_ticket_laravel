@@ -21,6 +21,7 @@ class userController extends Controller
             }else{
                 
                 $flights = FlightSchedule::where('DepartureCity',$data['from'])->Where('ArrivalCity',$data['to'])->get()->toArray();
+                echo $user_flight_count; die();
                 //dd($flights); die();
                 if(!empty($flights)){
 
