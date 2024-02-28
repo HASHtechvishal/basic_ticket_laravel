@@ -22,10 +22,23 @@ class userController extends Controller
                 
                 $flights = FlightSchedule::where('DepartureCity',$data['from'])->Where('ArrivalCity',$data['to'])->get();
 
+
                     $total_price = $flights->pluck('Price')->first();
                     $total_child_price = ($data['child'] * ($total_price / 2));
+
+                    if($data['class'] == 'Business class'){
+                        $business_price = $total_price * 2;
+                        $final_price = ($data['adult'] * $total_price) + $total_child_price + $business_price;
+                    }elseif($data['class'] == 'First class'){
+                        $firstClass_price = $total_price * 3;
+                        $final_price = ($data['adult'] * $total_price) + $total_child_price + $firstClass_price;
+
+                    }else{
+                        $final_price = ($data['adult'] * $total_price) + $total_child_price;
+                    }
+            
                 
-                $final_price = ($data['adult'] * $total_price) + $total_child_price;
+
                 //echo " $final_price"; die();
                 //dd($flights); die();
                 if(!empty($flights)){
