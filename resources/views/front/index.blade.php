@@ -1,5 +1,48 @@
 @extends('front.layouts.layout')
 @section('content')
+<style>
+   body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   }
+   .container {
+   width: 90%;
+   margin: 20px auto;
+   }
+   table {
+   width: 100%;
+   border-collapse: collapse;
+   }
+   th, td {
+   padding: 8px;
+   text-align: left;
+   border-bottom: 1px solid #ddd;
+   }
+   th {
+   background-color: #f2f2f2;
+   }
+   @media screen and (max-width: 600px) {
+   table {
+   border: 0;
+   }
+   table thead {
+   display: none;
+   }
+   table tr {
+   border-bottom: 3px solid #ddd;
+   display: block;
+   margin-bottom: 10px;
+   }
+   table td {
+   display: block;
+   text-align: right;
+   }
+   table td:last-child {
+   border-bottom: 0;
+   }
+   }
+</style>
 <body>
    <div id="booking" class="section">
       <div class="section-center">
@@ -19,7 +62,8 @@
                      <form action="{{url('search_flight/'.Auth::guard('user')->user()->id)}}" method="post">@csrf
                         <?php
                            }else{ ?>
-                     <form action="{{url('search_flight')}}" method="post">@csrf
+                     <form action="{{url('search_flight')}}" method="post">
+                        @csrf
                         <?php
                            }
                            ?>
@@ -121,6 +165,36 @@
                      </form>
                   </div>
                </div>
+            </div>
+            <div class="container">
+               <h2>Flight Details</h2>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Flight Number</th>
+                        <th>Airline</th>
+                        <th>Departure</th>
+                        <th>Departure Time</th>
+                        <th>Arrival</th>
+                        <th>Arrival Time</th>
+                        <th>Price ($)</th>
+                        <th>Action</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>ABC123</td>
+                        <td>go air</td>
+                        <td>London</td>
+                        <td>2024-03-01</td>
+                        <td>delhi</td>
+                        <td>2024-03-01</td>
+                        <td>222</td>
+                        <td><button class="btn btn-outline-success">BOOK</button></td>
+                     </tr>
+                     <!-- Add more rows for additional flights -->
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>
