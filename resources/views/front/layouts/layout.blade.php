@@ -32,4 +32,6 @@
 
 @yield('content')
 
+<script src="{{url('front/js/frontJS.js')}}"></script>
+
 </html>

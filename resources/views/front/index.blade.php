@@ -26,11 +26,11 @@
                         <div class="form-group">
                            <div class="form-checkbox">
                               <label for="one-way">
-                              <input type="radio" id="one-way" name="flight-type" value="one way">
+                              <input type="radio" id="one-way" name="flight-type" value="one way" onclick="enableInput()">
                               <span></span>One way
                               </label>
                               <label for="multi-city">
-                              <input type="radio" id="multi-city" name="flight-type" value="two way">
+                              <input type="radio" id="multi-city" name="flight-type" value="two way" onclick="enableInput()">
                               <span></span>Two way
                               </label>
                               <label>
@@ -76,7 +76,7 @@
                            <div class="col-md-6">
                               <div class="form-group">
                                  <span class="form-label">Returning</span>
-                                 <input class="form-control" type="date" name="Returning" required>
+                                 <input class="form-control" type="date" name="Returning" id="textInput" required>
                               </div>
                            </div>
                         </div>

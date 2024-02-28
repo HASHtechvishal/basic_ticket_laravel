@@ -14,7 +14,7 @@ class userController extends Controller
         if($req->isMethod('post')){
             $data = $req->all();
             //dd($data); die();
-            $userID = User::find($id)->id;
+            $userID = User::find($id)->id ?? '';
             if(!Auth::guard('user')->check()){
                 echo '<script>alert("Login or Register So We Can Assist You Better")</script>';
                         return redirect()->back();
