@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SearchFlight;
 use App\Models\User;
+use App\Models\FlightSchedule;
 use Auth;
 
 class userController extends Controller
@@ -14,12 +15,17 @@ class userController extends Controller
         if($req->isMethod('post')){
             $data = $req->all();
             //dd($data); die();
-            $userID = User::find($id)->id ?? '';
             if(!Auth::guard('user')->check()){
                 echo '<script>alert("Login or Register So We Can Assist You Better")</script>';
                         return redirect()->back();
             }else{
-                $search = new SearchFlight;
+                
+                $flights = FlightSchedule::where('DepartureCity',$data['from'])->Where('ArrivalCity',$data['to'])->get()->toArray();
+                //dd($flights); die();
+                if(!empty($flights)){
+
+                    $userID = User::find($id)->id ?? '';
+                    $search = new SearchFlight;
                     $search->user_id = $userID;
                     $search->type = $data['flight-type'];
                     $search->from = $data['from'];
@@ -31,8 +37,48 @@ class userController extends Controller
                     $search->class = $data['class'];
                     $search->status = 1;
                     $search->save();
-                    return redirect('log-in');
+                    return view('front.index')->with(compact('flights')); 
+                }else{
+                    echo '<script>alert("Unfortunately Your Flight Is Not Found")</script>';
+                        return redirect()->back();
+                }
             }
+        }else{
+            return redirect()->back();
         }
     }
+
+    public function addFlight(Request $req, $id=null, $user_id=null){
+
+        if($id == "" && $user_id == ''){
+            echo '<script>alert("please search for the flight first")</script>';
+                        return redirect('/');
+        }else{
+
+
+
+            echo '<script>alert("Your Payment Is Done")</script>';
+            $add_flight = SearchFlight::where('user_id',$user_id)->first();
+            if($add_flight){
+                if($add_flight->flightID === null){
+                    $add_flight->flightID = $id;
+                    $add_flight->save();
+                    return redirect('/');
+
+                }else{
+                    echo 'allready exit'; die(); 
+                }
+            }else{
+                echo 'flight id not found for the specified user.'; die();
+            }
+
+
+            
+
+        }
+
+        
+
+    }
+
 }

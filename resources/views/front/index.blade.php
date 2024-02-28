@@ -18,6 +18,7 @@
    padding: 8px;
    text-align: left;
    border-bottom: 1px solid #ddd;
+   font-weight: bold;
    }
    th {
    background-color: #f2f2f2;
@@ -182,16 +183,20 @@
                      </tr>
                   </thead>
                   <tbody>
+					@if ($flights ?? '')
+					@foreach ($flights as $flight)
                      <tr>
-                        <td>ABC123</td>
-                        <td>go air</td>
-                        <td>London</td>
-                        <td>2024-03-01</td>
-                        <td>delhi</td>
-                        <td>2024-03-01</td>
-                        <td>222</td>
-                        <td><button class="btn btn-outline-success">BOOK</button></td>
+                        <td>{{$flight['FlightNumber']}}</td>
+                        <td>{{$flight['Airline']}}</td>
+                        <td>{{$flight['DepartureCity']}}</td>
+                        <td>{{$flight['DepartureTime']}}</td>
+                        <td>{{$flight['ArrivalCity']}}</td>
+                        <td>{{$flight['ArrivalTime']}}</td>
+                        <td>{{$flight['Price']}}</td>
+                        <td><a href="{{url('add-flight/'.$flight['id'].'/'.Auth::guard('user')->user()->id)}}"><button class="btn btn-outline-success">BOOK</button></a></td>
                      </tr>
+					 @endforeach
+					 @endif
                      <!-- Add more rows for additional flights -->
                   </tbody>
                </table>

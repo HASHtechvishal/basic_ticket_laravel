@@ -23,7 +23,8 @@ Route::namespace('front')->group(function(){
     Route::get('user_logout','IndexController@userLogout');
 
 
-    Route::post('search_flight/{id?}','userController@searchFlight');
+    Route::match(['get','post'],'search_flight/{id?}','userController@searchFlight');
+    Route::match(['get','post'],'add-flight/{id?}/{user_id?}','userController@addFlight');
 });
 
 //route for admins
