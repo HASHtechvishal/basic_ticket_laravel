@@ -20,8 +20,9 @@ class userController extends Controller
                         return redirect()->back();
             }else{
                 
-                $flights = FlightSchedule::where('DepartureCity',$data['from'])->Where('ArrivalCity',$data['to'])->get()->toArray();
-                echo $user_flight_count; die();
+                $flights = FlightSchedule::where('DepartureCity',$data['from'])->Where('ArrivalCity',$data['to'])->get();
+                $final_price = $data['adult'] * $flights->pluck('Price')->first();
+                //echo " $final_price"; die();
                 //dd($flights); die();
                 if(!empty($flights)){
 
@@ -38,7 +39,7 @@ class userController extends Controller
                     $search->class = $data['class'];
                     $search->status = 1;
                     $search->save();
-                    return view('front.index')->with(compact('flights')); 
+                    return view('front.index')->with(compact('flights','final_price')); 
                 }else{
                     echo '<script>alert("Unfortunately Your Flight Is Not Found")</script>';
                         return redirect()->back();

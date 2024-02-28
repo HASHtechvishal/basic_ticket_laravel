@@ -192,8 +192,8 @@
                         <td>{{$flight['DepartureTime']}}</td>
                         <td>{{$flight['ArrivalCity']}}</td>
                         <td>{{$flight['ArrivalTime']}}</td>
-                        <td>{{$flight['Price']}}</td>
-                        <td><a href="{{url('add-flight/'.$flight['id'].'/'.Auth::guard('user')->user()->id.'/'.$flight['Price'])}}"><button class="btn btn-outline-success">BOOK</button></a></td>
+                        <td>{{$final_price}}</td>
+                        <td><a href="{{url('add-flight/'.$flight['id'].'/'.Auth::guard('user')->user()->id.'/'.$final_price)}}"><button class="btn btn-outline-success">BOOK</button></a></td>
                      </tr>
 					 @endforeach
 					 @endif
