@@ -24,7 +24,7 @@ Route::namespace('front')->group(function(){
 
 
     Route::match(['get','post'],'search_flight/{id?}','userController@searchFlight');
-    Route::match(['get','post'],'add-flight/{id?}/{user_id?}','userController@addFlight');
+    Route::match(['get','post'],'add-flight/{id?}/{user_id?}/{price?}','userController@addFlight');
 });
 
 //route for admins

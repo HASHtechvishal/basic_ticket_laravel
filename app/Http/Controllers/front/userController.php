@@ -48,22 +48,23 @@ class userController extends Controller
         }
     }
 
-    public function addFlight(Request $req, $id=null, $user_id=null){
+    public function addFlight(Request $req, $id=null, $user_id=null, $price=null){
 
-        if($id == "" && $user_id == ''){
+        if($id == "" && $user_id == '' && $price == null){
             echo '<script>alert("please search for the flight first")</script>';
                         return redirect('/');
         }else{
 
-
-
             echo '<script>alert("Your Payment Is Done")</script>';
 
-            $tableID = SearchFlight::whereNull('flightID')->where('user_id',$user_id)->pluck('id')->first();
-            $add_flight = SearchFlight::find($tableID);
+            $tableID_flight = SearchFlight::whereNull('flightID')->where('user_id',$user_id)->pluck('id')->first();
+            $tableID_price = SearchFlight::whereNull('price')->where('user_id',$user_id)->pluck('id')->first();
+
+            $add_flight = SearchFlight::find($tableID_flight);
             if($add_flight){
                 if($add_flight->flightID === null){
                     $add_flight->flightID = $id;
+                    $add_flight->price = $price;
                     $add_flight->save();
                     return redirect('/');
 
