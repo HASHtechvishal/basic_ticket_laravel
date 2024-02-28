@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.26)
 # Database: flight_laravel
-# Generation Time: 2024-02-28 18:35:35 +0000
+# Generation Time: 2024-02-28 21:35:30 +0000
 # ************************************************************
 
 
@@ -217,8 +217,14 @@ LOCK TABLES `Search_flights` WRITE;
 
 INSERT INTO `Search_flights` (`id`, `user_id`, `flightID`, `type`, `from`, `to`, `departing`, `returning`, `adult`, `child`, `class`, `price`, `status`, `updated_at`, `created_at`)
 VALUES
-	(22,3,16,'one way','delhi','goa','1111-11-11',NULL,1,0,'Economy class',NULL,1,'2024-02-28 18:04:48','2024-02-28 18:04:34'),
-	(23,3,NULL,'one way','Mumbai','pune','2024-02-15',NULL,1,0,'Economy class',NULL,1,'2024-02-28 18:11:42','2024-02-28 18:11:42');
+	(29,4,19,'one way','pune','delhi','2024-03-02',NULL,1,0,'Economy class',280,1,'2024-02-28 19:20:27','2024-02-28 19:17:29'),
+	(30,4,16,'one way','delhi','goa','2024-03-09',NULL,1,0,'Economy class',270,1,'2024-02-28 19:21:08','2024-02-28 19:20:57'),
+	(31,3,16,'one way','delhi','goa','2024-03-05',NULL,1,0,'Economy class',270,1,'2024-02-28 19:22:21','2024-02-28 19:22:10'),
+	(32,3,39,'one way','pune','mumbai','2024-03-06',NULL,1,0,'Economy class',290,1,'2024-02-28 19:27:56','2024-02-28 19:22:43'),
+	(33,4,36,'one way','Mumbai','goa','2024-03-05',NULL,1,0,'Economy class',270,1,'2024-02-28 19:24:29','2024-02-28 19:24:16'),
+	(41,3,39,'one way','pune','mumbai','2024-02-23',NULL,2,0,'Economy class',580,1,'2024-02-28 20:49:00','2024-02-28 20:48:49'),
+	(42,3,16,'one way','delhi','goa','2024-03-09',NULL,3,0,'Economy class',810,1,'2024-02-28 20:49:39','2024-02-28 20:49:35'),
+	(45,3,39,'one way','pune','mumbai','2024-02-15',NULL,2,3,'Economy class',1015,1,'2024-02-28 21:32:56','2024-02-28 21:32:38');
 
 /*!40000 ALTER TABLE `Search_flights` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -251,7 +257,8 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` (`id`, `username`, `type`, `email`, `password`, `country`, `mobile`, `image`, `status`, `created_at`, `updated_at`)
 VALUES
 	(3,'kritika','user','kritika@gmail.com','$2y$10$Ib63.6iBpHTR2y.uSaej7.Hw154Qp3OTXWE/bTkSh7YhpBXcOUHqq','+91','7508050111','kritika339.jpg',1,'2024-02-27 17:10:06','2024-02-27 17:10:06'),
-	(4,'user','user','user@gmail.com','$2y$10$fj5oHaNSyE.YjM0f.GBWeOZJvvYScrJylRsgjPZWMAiz0OSBw8zjq','+91','123321123432','user229.jpg',1,'2024-02-27 18:06:33','2024-02-27 18:06:33');
+	(4,'user','user','user@gmail.com','$2y$10$fj5oHaNSyE.YjM0f.GBWeOZJvvYScrJylRsgjPZWMAiz0OSBw8zjq','+91','123321123432','user229.jpg',1,'2024-02-27 18:06:33','2024-02-27 18:06:33'),
+	(5,'abc','user','abc@gmail.com','$2y$10$kVlx15eiLBEzgPWIb3S9y..hAy9JnfMcEsQ4YK4Rz3KGZl5FL2D0i','+91','999999999','abc924.jpg',1,'2024-02-28 19:25:26','2024-02-28 19:25:26');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
