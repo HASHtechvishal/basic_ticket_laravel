@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.26)
 # Database: flight_laravel
-# Generation Time: 2024-02-28 10:36:33 +0000
+# Generation Time: 2024-02-28 18:35:35 +0000
 # ************************************************************
 
 
@@ -71,13 +71,13 @@ CREATE TABLE `failed_jobs` (
 
 
 
-# Dump of table FlightSchedules
+# Dump of table flight_schedules
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `FlightSchedules`;
+DROP TABLE IF EXISTS `flight_schedules`;
 
-CREATE TABLE `FlightSchedules` (
-  `FlightID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `flight_schedules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `FlightNumber` varchar(10) NOT NULL,
   `Airline` varchar(50) NOT NULL,
   `DepartureAirport` varchar(50) NOT NULL,
@@ -87,56 +87,42 @@ CREATE TABLE `FlightSchedules` (
   `ArrivalCity` varchar(50) NOT NULL,
   `ArrivalTime` datetime NOT NULL,
   `Price` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`FlightID`)
+  `status` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `FlightSchedules` WRITE;
-/*!40000 ALTER TABLE `FlightSchedules` DISABLE KEYS */;
+LOCK TABLES `flight_schedules` WRITE;
+/*!40000 ALTER TABLE `flight_schedules` DISABLE KEYS */;
 
-INSERT INTO `FlightSchedules` (`FlightID`, `FlightNumber`, `Airline`, `DepartureAirport`, `DepartureCity`, `DepartureTime`, `ArrivalAirport`, `ArrivalCity`, `ArrivalTime`, `Price`)
+INSERT INTO `flight_schedules` (`id`, `FlightNumber`, `Airline`, `DepartureAirport`, `DepartureCity`, `DepartureTime`, `ArrivalAirport`, `ArrivalCity`, `ArrivalTime`, `Price`, `status`)
 VALUES
-	(1,'SG205','SpiceJet','HYD','Hyderabad','2024-03-02 14:30:00','DEL','Delhi','2024-03-02 17:00:00',180.00),
-	(2,'6E306','IndiGo','MAA','Chennai','2024-03-02 16:00:00','BOM','Mumbai','2024-03-02 18:30:00',210.00),
-	(3,'AI105','Air India','DEL','Delhi','2024-03-02 17:30:00','BLR','Bangalore','2024-03-02 20:00:00',240.00),
-	(4,'SG206','SpiceJet','BOM','Mumbai','2024-03-02 19:00:00','CCU','Kolkata','2024-03-02 21:30:00',190.00),
-	(5,'6E307','IndiGo','BLR','Bangalore','2024-03-02 21:00:00','DEL','Delhi','2024-03-03 00:30:00',220.00),
-	(6,'AI106','Air India','BOM','Mumbai','2024-03-03 08:00:00','HYD','Hyderabad','2024-03-03 10:00:00',220.00),
-	(7,'SG207','SpiceJet','DEL','Delhi','2024-03-03 09:30:00','MAA','Chennai','2024-03-03 12:00:00',180.00),
-	(8,'6E308','IndiGo','BOM','Mumbai','2024-03-03 11:00:00','PNQ','Pune','2024-03-03 13:15:00',200.00),
-	(9,'AI107','Air India','HYD','Hyderabad','2024-03-03 12:30:00','BOM','Mumbai','2024-03-03 14:30:00',230.00),
-	(10,'SG208','SpiceJet','MAA','Chennai','2024-03-03 14:00:00','DEL','Delhi','2024-03-03 16:30:00',190.00),
-	(11,'AI108','Air India','BOM','Mumbai','2024-03-03 15:30:00','HYD','Hyderabad','2024-03-03 17:30:00',250.00),
-	(12,'SG209','SpiceJet','DEL','Delhi','2024-03-03 17:00:00','COK','Kochi','2024-03-03 19:30:00',200.00),
-	(13,'6E309','IndiGo','MAA','Chennai','2024-03-03 18:30:00','CCU','Kolkata','2024-03-03 21:00:00',230.00),
-	(14,'AI109','Air India','HYD','Hyderabad','2024-03-03 20:00:00','BOM','Mumbai','2024-03-03 22:00:00',260.00),
-	(15,'SG210','SpiceJet','COK','Kochi','2024-03-03 21:30:00','DEL','Delhi','2024-03-04 00:00:00',210.00),
-	(16,'AI110','Air India','DEL','Delhi','2024-03-04 08:30:00','GOI','Goa','2024-03-04 10:30:00',270.00),
-	(17,'SG211','SpiceJet','BOM','Mumbai','2024-03-04 10:00:00','PNQ','Pune','2024-03-04 12:15:00',220.00),
-	(18,'6E310','IndiGo','GOI','Goa','2024-03-04 11:30:00','MAA','Chennai','2024-03-04 14:00:00',240.00),
-	(19,'AI111','Air India','PNQ','Pune','2024-03-04 13:00:00','DEL','Delhi','2024-03-04 15:00:00',280.00),
-	(20,'SG212','SpiceJet','CCU','Kolkata','2024-03-04 15:30:00','BOM','Mumbai','2024-03-04 18:00:00',230.00),
-	(21,'AI108','Air India','BOM','Mumbai','2024-03-03 15:30:00','HYD','Hyderabad','2024-03-03 17:30:00',250.00),
-	(22,'SG209','SpiceJet','DEL','Delhi','2024-03-03 17:00:00','COK','Kochi','2024-03-03 19:30:00',200.00),
-	(23,'6E309','IndiGo','MAA','Chennai','2024-03-03 18:30:00','CCU','Kolkata','2024-03-03 21:00:00',230.00),
-	(24,'AI109','Air India','HYD','Hyderabad','2024-03-03 20:00:00','BOM','Mumbai','2024-03-03 22:00:00',260.00),
-	(25,'SG210','SpiceJet','COK','Kochi','2024-03-03 21:30:00','DEL','Delhi','2024-03-04 00:00:00',210.00),
-	(26,'AI110','Air India','DEL','Delhi','2024-03-04 08:30:00','GOI','Goa','2024-03-04 10:30:00',270.00),
-	(27,'SG211','SpiceJet','BOM','Mumbai','2024-03-04 10:00:00','PNQ','Pune','2024-03-04 12:15:00',220.00),
-	(28,'6E310','IndiGo','GOI','Goa','2024-03-04 11:30:00','MAA','Chennai','2024-03-04 14:00:00',240.00),
-	(29,'AI111','Air India','PNQ','Pune','2024-03-04 13:00:00','DEL','Delhi','2024-03-04 15:00:00',280.00),
-	(30,'SG212','SpiceJet','CCU','Kolkata','2024-03-04 15:30:00','BOM','Mumbai','2024-03-04 18:00:00',230.00),
-	(31,'AI112','Air India','HYD','Hyderabad','2024-03-04 16:30:00','COK','Kochi','2024-03-04 18:30:00',290.00),
-	(32,'SG213','SpiceJet','MAA','Chennai','2024-03-04 18:00:00','GOI','Goa','2024-03-04 20:30:00',240.00),
-	(33,'6E311','IndiGo','CCU','Kolkata','2024-03-04 19:30:00','DEL','Delhi','2024-03-04 22:00:00',260.00),
-	(34,'AI113','Air India','BOM','Mumbai','2024-03-04 21:00:00','MAA','Chennai','2024-03-05 00:30:00',300.00),
-	(35,'SG214','SpiceJet','DEL','Delhi','2024-03-05 08:00:00','BLR','Bangalore','2024-03-05 10:30:00',250.00),
-	(36,'AI114','Air India','BOM','Mumbai','2024-03-05 10:30:00','GOI','Goa','2024-03-05 12:30:00',270.00),
-	(37,'SG215','SpiceJet','DEL','Delhi','2024-03-05 12:00:00','HYD','Hyderabad','2024-03-05 14:30:00',230.00),
-	(38,'6E312','IndiGo','MAA','Chennai','2024-03-05 13:30:00','PNQ','Pune','2024-03-05 15:45:00',280.00),
-	(39,'AI115','Air India','PNQ','Pune','2024-03-05 15:00:00','BOM','Mumbai','2024-03-05 17:00:00',290.00),
-	(40,'SG216','SpiceJet','CCU','Kolkata','2024-03-05 16:30:00','DEL','Delhi','2024-03-05 19:00:00',240.00);
+	(1,'SG205','SpiceJet','HYD','Hyderabad','2024-03-02 14:30:00','DEL','Delhi','2024-03-02 17:00:00',180.00,1),
+	(2,'6E306','IndiGo','MAA','Chennai','2024-03-02 16:00:00','BOM','Mumbai','2024-03-02 18:30:00',210.00,1),
+	(3,'AI105','Air India','DEL','Delhi','2024-03-02 17:30:00','BLR','Bangalore','2024-03-02 20:00:00',240.00,1),
+	(4,'SG206','SpiceJet','BOM','Mumbai','2024-03-02 19:00:00','CCU','Kolkata','2024-03-02 21:30:00',190.00,1),
+	(5,'6E307','IndiGo','BLR','Bangalore','2024-03-02 21:00:00','DEL','Delhi','2024-03-03 00:30:00',220.00,1),
+	(6,'AI106','Air India','BOM','Mumbai','2024-03-03 08:00:00','HYD','Hyderabad','2024-03-03 10:00:00',220.00,1),
+	(7,'SG207','SpiceJet','DEL','Delhi','2024-03-03 09:30:00','MAA','Chennai','2024-03-03 12:00:00',180.00,1),
+	(8,'6E308','IndiGo','BOM','Mumbai','2024-03-03 11:00:00','PNQ','Pune','2024-03-03 13:15:00',200.00,1),
+	(9,'AI107','Air India','HYD','Hyderabad','2024-03-03 12:30:00','BOM','Mumbai','2024-03-03 14:30:00',230.00,1),
+	(10,'SG208','SpiceJet','MAA','Chennai','2024-03-03 14:00:00','DEL','Delhi','2024-03-03 16:30:00',190.00,1),
+	(12,'SG209','SpiceJet','DEL','Delhi','2024-03-03 17:00:00','COK','Kochi','2024-03-03 19:30:00',200.00,1),
+	(13,'6E309','IndiGo','MAA','Chennai','2024-03-03 18:30:00','CCU','Kolkata','2024-03-03 21:00:00',230.00,1),
+	(15,'SG210','SpiceJet','COK','Kochi','2024-03-03 21:30:00','DEL','Delhi','2024-03-04 00:00:00',210.00,1),
+	(16,'AI110','Air India','DEL','Delhi','2024-03-04 08:30:00','GOI','Goa','2024-03-04 10:30:00',270.00,1),
+	(18,'6E310','IndiGo','GOI','Goa','2024-03-04 11:30:00','MAA','Chennai','2024-03-04 14:00:00',240.00,1),
+	(19,'AI111','Air India','PNQ','Pune','2024-03-04 13:00:00','DEL','Delhi','2024-03-04 15:00:00',280.00,1),
+	(20,'SG212','SpiceJet','CCU','Kolkata','2024-03-04 15:30:00','BOM','Mumbai','2024-03-04 18:00:00',230.00,1),
+	(31,'AI112','Air India','HYD','Hyderabad','2024-03-04 16:30:00','COK','Kochi','2024-03-04 18:30:00',290.00,1),
+	(32,'SG213','SpiceJet','MAA','Chennai','2024-03-04 18:00:00','GOI','Goa','2024-03-04 20:30:00',240.00,1),
+	(33,'6E311','IndiGo','CCU','Kolkata','2024-03-04 19:30:00','DEL','Delhi','2024-03-04 22:00:00',260.00,1),
+	(34,'AI113','Air India','BOM','Mumbai','2024-03-04 21:00:00','MAA','Chennai','2024-03-05 00:30:00',300.00,1),
+	(36,'AI114','Air India','BOM','Mumbai','2024-03-05 10:30:00','GOI','Goa','2024-03-05 12:30:00',270.00,1),
+	(37,'SG215','SpiceJet','DEL','Delhi','2024-03-05 12:00:00','HYD','Hyderabad','2024-03-05 14:30:00',230.00,1),
+	(38,'6E312','IndiGo','MAA','Chennai','2024-03-05 13:30:00','PNQ','Pune','2024-03-05 15:45:00',280.00,1),
+	(39,'AI115','Air India','PNQ','Pune','2024-03-05 15:00:00','BOM','Mumbai','2024-03-05 17:00:00',290.00,1);
 
-/*!40000 ALTER TABLE `FlightSchedules` ENABLE KEYS */;
+/*!40000 ALTER TABLE `flight_schedules` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -210,6 +196,7 @@ DROP TABLE IF EXISTS `Search_flights`;
 CREATE TABLE `Search_flights` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(50) DEFAULT NULL,
+  `flightID` int(50) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
   `from` varchar(100) DEFAULT NULL,
   `to` varchar(100) DEFAULT NULL,
@@ -218,6 +205,7 @@ CREATE TABLE `Search_flights` (
   `adult` int(100) DEFAULT NULL,
   `child` int(100) DEFAULT NULL,
   `class` varchar(100) DEFAULT NULL,
+  `price` int(100) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -227,11 +215,10 @@ CREATE TABLE `Search_flights` (
 LOCK TABLES `Search_flights` WRITE;
 /*!40000 ALTER TABLE `Search_flights` DISABLE KEYS */;
 
-INSERT INTO `Search_flights` (`id`, `user_id`, `type`, `from`, `to`, `departing`, `returning`, `adult`, `child`, `class`, `status`, `updated_at`, `created_at`)
+INSERT INTO `Search_flights` (`id`, `user_id`, `flightID`, `type`, `from`, `to`, `departing`, `returning`, `adult`, `child`, `class`, `price`, `status`, `updated_at`, `created_at`)
 VALUES
-	(1,4,'one way','delhi','goa','1111-11-11','1111-11-11',1,0,'Economy class',1,'2024-02-27 21:24:58','2024-02-27 21:24:58'),
-	(2,3,'two way','goa','delhi','2024-02-02','2024-02-23',1,0,'Economy class',1,'2024-02-28 05:09:12','2024-02-28 05:09:12'),
-	(3,3,'one way','ab','cd','1111-11-11',NULL,2,1,'First class',1,'2024-02-28 08:38:04','2024-02-28 08:38:04');
+	(22,3,16,'one way','delhi','goa','1111-11-11',NULL,1,0,'Economy class',NULL,1,'2024-02-28 18:04:48','2024-02-28 18:04:34'),
+	(23,3,NULL,'one way','Mumbai','pune','2024-02-15',NULL,1,0,'Economy class',NULL,1,'2024-02-28 18:11:42','2024-02-28 18:11:42');
 
 /*!40000 ALTER TABLE `Search_flights` ENABLE KEYS */;
 UNLOCK TABLES;
