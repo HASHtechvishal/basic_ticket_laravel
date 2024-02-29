@@ -17,7 +17,30 @@
     <link href="{{url('admin/assets/css/style.css')}}" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <style>
+  .add {
+  display: flex;
+  justify-content: space-between; /* or flex-end */
+    }
 
+.button {
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text */
+  padding: 10px 20px; /* Padding */
+  float: right;
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow */
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker blue background on hover */
+}
+
+
+  </style>
 </head>
 <body>
     @include('admin.layouts.header')
