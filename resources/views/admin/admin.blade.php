@@ -55,7 +55,7 @@
 <div class="col-md-12 col-sm-8 col-xs-12">
     <div class="panel panel-success">
        <div class="panel-heading add">
-         <b>Final Booking Table</b>
+         <b>Final Booking Table (Number of Flights - {{$flight_count}})</b>
        </div> 
        <div class="panel-body">
           <div class="table-responsive">
@@ -65,7 +65,6 @@
                       <th>User ID</th>
                       <th>User Name</th>
                       <th>User Image</th>
-                      <th>No. Of Flights</th>
                       <th>Adult</th>
                       <th>Child</th>
                       <th>Class</th>
@@ -83,8 +82,7 @@
                    <tr>
                       <td>{{$booking['user_id']}}</td>
                       <td>{{$booking['user']['username']}}</td>
-                      <td>{{$booking['user']['image']}}</td>
-                      <td><?php ?></td>
+                      <td><img src="{{asset('admin/user_image/'.$booking['user']['image'])}}" alt="" width="70" height="50"></td>
                       <td>{{$booking['adult']}}</td>
                       <td>{{$booking['child']}}</td>
                       <td>{{$booking['class']}}</td>

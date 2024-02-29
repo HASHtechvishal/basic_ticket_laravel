@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\FlightSchedule;
 use App\Models\SearchFlight;
+use App\Models\User;
 use Auth;
 
 class AdminController extends Controller
@@ -13,8 +14,10 @@ class AdminController extends Controller
     public function dash(Request $req) {
         $admin_dash = FlightSchedule::get()->toArray();
         $flightBookings = SearchFlight::with('user')->get()->toArray();
-        //dd($flightBookings); die();
-        return view('admin.admin')->with(compact('admin_dash','flightBookings'));
+        $flight_count = SearchFlight::count();
+        //$usersWithFlightBookings = User::withCount('SearchFlight')->get()->toArray();
+        //dd($flight_count); die();
+        return view('admin.admin')->with(compact('admin_dash','flightBookings','flight_count'));
     }
 
     public function adminLogout(Request $req) {
