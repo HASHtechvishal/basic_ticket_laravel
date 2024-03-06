@@ -185,7 +185,7 @@
                   </thead>
                   <tbody>
 					@if ($flights ?? '')
-					@foreach ($flights as $flight)
+					@foreach ($flights as $flight) 
                      <tr>
                         <td>{{$flight['FlightNumber']}}</td>
                         <td>{{$flight['Airline']}}</td>
