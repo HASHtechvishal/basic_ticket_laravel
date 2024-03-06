@@ -14,7 +14,7 @@ class userController extends Controller
     public function searchFlight(Request $req, $id=null){
         if($req->isMethod('post')){
             $data = $req->all();
-            //dd($data); die();
+        //dd($data); die();
             if(!Auth::guard('user')->check()){
                 echo '<script>alert("Login or Register So We Can Assist You Better")</script>';
                         return redirect()->back();
@@ -22,6 +22,7 @@ class userController extends Controller
                 
                 $flights = FlightSchedule::where('DepartureCity',$data['from'])->Where('ArrivalCity',$data['to'])->get();
 
+                if(!empty($flights)){
 
                     $total_price = $flights->pluck('Price')->first();
                     $total_child_price = ($data['child'] * ($total_price / 2));
@@ -41,7 +42,6 @@ class userController extends Controller
 
                 //echo " $final_price"; die();
                 //dd($flights); die();
-                if(!empty($flights)){
 
                     $userID = User::find($id)->id ?? ''; 
                     $search = new SearchFlight;

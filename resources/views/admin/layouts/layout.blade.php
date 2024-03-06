@@ -17,7 +17,9 @@
     <link href="{{url('admin/assets/css/style.css')}}" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-  <style>
+    <!--sweet alert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
   .add {
   display: flex;
   justify-content: space-between; /* or flex-end */
@@ -56,6 +58,11 @@
     <script src="{{url('admin/assets/js/bootstrap.js')}}"></script>
       <!-- CUSTOM SCRIPTS  -->
     <script src="{{url('admin/assets/js/custom.js')}}"></script>
+   
+    {{--admin.js--}}
+    <script src="{{url('admin/admin.js')}}"></script>
+
+
   
 </body>
 </html>

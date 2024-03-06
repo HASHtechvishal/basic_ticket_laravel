@@ -39,8 +39,10 @@
                      <td>{{$details['ArrivalCity']}}</td>
                      <td>{{$details['ArrivalTime']}}</td>
                      <td>{{$details['Price']}}</td>
-                     <td>{{$details['status']}}</td>
-                     <td></td>
+                     <td>{{$details['status']}}</td> 
+                     <td>
+                        <a title="delete" href="javascript:void(0);" class="confirmDelete" name="details" record="delete_details" recordid="{{$details['id']}}" style="color: red">Delete</i></a>
+                     </td>
                   </tr>
                   @endforeach
                </tbody>
@@ -91,7 +93,9 @@
                       <td>{{$booking['to']}}</td>
                       <td>{{$booking['price']}}</td>
                       <td>{{$booking['status']}}</td>
-                      <td></td>
+                      <td>
+                        <a title="delete" href="javascript:void(0);" class="confirmDelete" name="user" record="delete_user" recordid="{{$booking['id']}}" style="color: red">Delete</i></a>
+                      </td>
                    </tr>
                    @endforeach
                 </tbody>
@@ -108,20 +112,3 @@
 </div>
 </div>
 @endsection
-
-{{--
-    Problem Statement #2. Covid Vaccination Booking
-Create a web application for covid vaccination booking. A console based application would work. Submissions with a very basic UI will be given extra marks.
-Type of Users
-c. User
-d. Admin
-User Use Cases
-● Login
-● Sign up
-● Searching for Vaccination center and working hours
-● Apply for a vaccination slot (only 10 candidates allowed per day) ● Logout
-Admin Use Cases
-● Login (Seperate login for Admin)
-● Add Vaccination Centres
-● Get dosage details (group by centers)
---}}

@@ -35,6 +35,9 @@ Route::group(['middleware' => ['admin']], function(){
     Route::match(['get','post'],'dash','AdminController@dash');
     Route::get('log-out','AdminController@adminLogout');
 
+    Route::get('delete_details/{id}','AdminController@deleteDetails');
+    Route::get('delete_user/{id}','AdminController@deleteUser');
+
 
 }); 
 });   
